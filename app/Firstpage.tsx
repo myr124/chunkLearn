@@ -5,6 +5,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import ThemedText from "@/components/ThemedText";
 import * as DocumentPicker from 'expo-document-picker';
 import { getGroqCompletion } from "@/services/groq";
+import { Link } from "expo-router";
 
 
 export default function Firstpage() {
@@ -30,7 +31,9 @@ export default function Firstpage() {
         }}>
             <ThemedText>Upload documents pertaining to class content (pdfs, audio...)</ThemedText>
             <ThemedText></ThemedText>
-            <TouchableOpacity style={globalStyles.button} onPress={handlePress}><FontAwesome6 name="upload" size={48}></FontAwesome6></TouchableOpacity>
+            <Link href={"/user/home"} asChild>
+                <TouchableOpacity style={globalStyles.button}><FontAwesome6 name="upload" size={48}></FontAwesome6></TouchableOpacity>
+            </Link>
         </ThemedView>
     );
 }
