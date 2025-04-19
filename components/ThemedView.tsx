@@ -1,14 +1,18 @@
-import { View, type ViewProps } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native'
+import { globalStyles } from '@/assets/styles'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { useThemeColor } from '@/hooks/useThemeColor';
-
-export type ThemedViewProps = ViewProps & {
-  lightColor?: string;
-  darkColor?: string;
-};
-
-export function ThemedView({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
-
-  return <View style={[{ backgroundColor }, style]} {...otherProps} />;
+type ThemedViewProps = {
+    styles?: StyleProp<ViewStyle>
+    children?: React.ReactNode
 }
+
+const ThemedView: React.FC<ThemedViewProps> = ({ children, styles }) => {
+    let view = <SafeAreaView style={globalStyles.container}>{children}</SafeAreaView>
+    if (styles) {
+        view = <SafeAreaView style={[globalStyles.container, styles]}>{children}</SafeAreaView>
+    }
+    return view
+}
+
+export default ThemedView
