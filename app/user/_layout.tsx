@@ -6,10 +6,18 @@ import { FontAwesome } from '@expo/vector-icons'
 import { globalStyles } from '@/assets/styles'
 
 type TabIconProps = {
-    name: string;
     icon: string;
-    title: string;
+    focused: boolean;
 }
+
+
+const TabIcon = ({ focused, icon }: TabIconProps) => {
+    if (focused) {
+        return <FontAwesome name={icon} size={32} color="white" />
+    }
+    return <FontAwesome name={icon} size={32} color="#303030" />
+}
+
 
 
 
@@ -25,18 +33,19 @@ const RootLayout = () => {
             }
         }}>
             <Tabs.Screen name="home" options={{
-                title: "Home", tabBarIcon: (() => {
-                    return <View><FontAwesome name="home" size={32} color="white" /></View>
+                title: "Home", tabBarIcon: (({ focused }) => {
+                    return <TabIcon icon="home" focused={focused} />
                 })
             }} />
             <Tabs.Screen name="add" options={{
-                title: "Add", tabBarIcon: (({ color = "black" }) => {
-                    return <FontAwesome name="plus-square" size={32} color={color} />
+                title: "Add", tabBarIcon: (({ focused }) => {
+                    return <TabIcon icon="plus-square" focused={focused} />
+
                 })
             }} />
             <Tabs.Screen name="settings" options={{
-                title: "Settings", tabBarIcon: (() => {
-                    return <FontAwesome name="gear" size={32} color="white" />
+                title: "Settings", tabBarIcon: (({ focused }) => {
+                    return <TabIcon icon="cog" focused={focused} />
                 })
             }} />
         </Tabs >
