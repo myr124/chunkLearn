@@ -10,13 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-        "bundleIdentifier": "com.example.chunkLearn"
+      "bundleIdentifier": "com.example.chunkLearn"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.example.chunkLearn"
     },
     "web": {
       "bundler": "metro",
@@ -24,12 +25,14 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
       [
         "@react-native-google-signin/google-signin",
         {
           "iosUrlScheme": "com.googleusercontent.apps.79300009871-sect6dj7j23jvt9g4mkq2pkror63ltfq"
-        },
+        }
+      ],
+      "expo-router",
+      [
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
