@@ -21,7 +21,7 @@ export default function index() {
                 <TextInput style={globalStyles.input} placeholder='Name'></TextInput>
                 <TextInput style={globalStyles.input} placeholder='School Level'></TextInput>
             </View>
-            <Link href={"/Firstpage"} asChild>
+            <Link href={"/login"} asChild>
                 <TouchableOpacity style={globalStyles.button}><FontAwesome6 name="arrow-right" size={48}></FontAwesome6></TouchableOpacity>
 
             </Link>

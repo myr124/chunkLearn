@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+        "bundleIdentifier": "com.example.chunkLearn"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,10 @@
     "plugins": [
       "expo-router",
       [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.79300009871-sect6dj7j23jvt9g4mkq2pkror63ltfq"
+        },
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
